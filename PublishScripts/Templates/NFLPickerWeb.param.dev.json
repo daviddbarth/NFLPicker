@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "NFLPickerWeb"
+  },
+  "hostingPlanName": {
+    "value": "Default1"
+  },
+  "siteLocation": {
+    "value": "South Central US"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "b6b9ece0-5806-4830-a04d-0635d318bf94"
+  },
+  "resourceGroup": {
+    "value": "Default-Web-SouthCentralUS"
+  }
+}

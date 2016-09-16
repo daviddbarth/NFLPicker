@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace NFLPicker
 {
-    public class Class1
+    public class Week : Entity
     {
+        public string Name { get; set; }
+        public List<Game> Games { get; set; }
     }
 }
