@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
+using NFLPicker.Utilities;
+using NFLPicker.Errors;
 
 namespace NFLPicker.Drivers
 {
@@ -16,8 +18,16 @@ namespace NFLPicker.Drivers
             _teamRepos = teamRepos;
         }
 
+        public async Task<IEnumerable<Team>> GetAllTeamsAsync()
+        {
+            return await _teamRepos.FindAllAsync();
+        }
+
         public async Task<Team> GetTeamAsync(string id)
         {
+            if (!Validators.IsValidBSONId(id))
+                throw new InvalidDataException("Invalid team id.");
+
             return await _teamRepos.FindByIdAsync(id);
         }
 
