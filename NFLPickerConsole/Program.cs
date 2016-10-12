@@ -19,10 +19,17 @@ namespace NFLPickerConsole
 
         private static async Task SaveTeam()
         {
-            var driver = new TeamDriver(new MongoRepository<Team>());
+            var setting = new Settings();
 
-            var team = new Team() { City = "Houston", Name = "Texans", LogoUrl = string.Empty };
-            await driver.SaveTeamAsync(team);
+            setting.CurrentSeason = "2016-2017";
+
+            var repos = new MongoRepository<Settings>();
+            await repos.SaveAsync(setting);
+
+            //var driver = new TeamDriver(new MongoRepository<Team>());
+
+            //var team = new Team() { City = "Houston", Name = "Texans", LogoUrl = string.Empty };
+            //await driver.SaveTeamAsync(team);
             
         }
     }
