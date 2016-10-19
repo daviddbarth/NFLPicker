@@ -11,7 +11,6 @@ namespace NFLPicker
     {
         [Required(), RegularExpression("^[A-Za-z0-9 ,-]{1,20}$", ErrorMessage = "Invalid week name")]
         public string SeasonName { get; set; }
-        public string Value { get; set; }
         public List<Week> Weeks { get; set; }
     }
 }

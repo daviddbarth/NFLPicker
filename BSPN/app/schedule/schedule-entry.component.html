@@ -1,6 +1,16 @@
-﻿<div>
-    <h1>{{pageTitle}}</h1>
-    <h2 *ngIf="1">{{pageSubTitle}}</h2>
-    <h3>{{schedule.SeasonName}}</h3>
-    <h3>{{schedule.Value}}</h3>
-</div>
+﻿<form #formRef ="ngForm">
+    <div>
+        <h2>{{pageTitle}}</h2>
+        <h3>{{schedule.SeasonName}} - Season</h3>
+        <select name="week" ngModel>
+            <option *ngFor="let week of schedule.Weeks" [value]="week.Name">
+                {{week.Name}}
+            </option>
+        </select>
+        <div id="Games">
+
+        </div>
+    </div>
+</form>
+
+{{formRef.value | json}}

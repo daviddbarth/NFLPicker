@@ -11,9 +11,7 @@ import { Observable }     from 'rxjs/Observable';
 export class ScheduleEntryComponent {
 
     pageTitle: string = "Schedule Entry";
-    pageSubTitle: string = "sub title";
     schedule: Schedule = new Schedule();
-    myBody: any;
 
     constructor(private scheduleService: ScheduleService) { }
 
@@ -21,14 +19,13 @@ export class ScheduleEntryComponent {
     {
         this.scheduleService.getSchedule().subscribe(sch => this.schedule = sch);
 
-        //x.subscribe(s => this.schedule = s);
-        //var y = this.schedule.SeasonName;
+        var box = document.createElement('input');
+        var div = document.getElementById('Games');
+        document.body.appendChild(box);
         
+        //box.innerText = "Hello";
     }
 
-    getSchedule() {
-        this.scheduleService.getSchedule();
-    }
 }
 
 

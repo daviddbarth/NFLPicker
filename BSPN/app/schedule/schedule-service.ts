@@ -12,29 +12,14 @@ export class ScheduleService {
 
     getSchedule(): Observable<Schedule> {
         return this.http.get(this.scheduleUrl, { headers: this.getHeaders()})
-            .map(this.extractData)
+            .map(res => <Schedule>res.json())
             .catch(this.handleError);
     }
 
     extractData(res: Response): Schedule {
         let body = res.json();
-        //return body.data || {};
-        return toSchedule(body);
-        //return body.results.map(toSchedule);
-        
+        return body.data || {};
     }
-
-//    function toPerson(r: any): Person {
-//    let person = <Person>({
-//        id: extractId(r),
-//        url: r.url,
-//        name: r.name,
-//        weight: r.mass,
-//        height: r.height,
-//    });
-//    console.log('Parsed person:', person);
-//    return person;
-//}
 
     private getHeaders() {
         let headers = new Headers();
@@ -52,10 +37,4 @@ export class ScheduleService {
     }
 }
 
-function toSchedule(r: any): Schedule {
-    let schedule = <Schedule>({
-        SeasonName: r.SeasonName,
-        Value: r.Value
-    });
-    return schedule;
-}
+
